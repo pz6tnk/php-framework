@@ -43,7 +43,7 @@ class AbstractModel
         return $DB->query($sql, [':value' => $value]);
     }
 
-    public function insert()
+    protected function insert()
     {
         $cols = array_keys($this->data);
         $data = [];
@@ -57,5 +57,34 @@ class AbstractModel
         $DB = new DB;
         $DB->execute($sql, $data);
         $this->id = $DB->lastInsertId();
+    }
+
+    protected function update()
+    {
+        $cols = [];
+        $data = [];
+        foreach ($this->data as $key => $value) {
+            $data[':' . $key] = $value;
+            if($key == 'id') {
+                continue;
+            }
+            $cols[] = $key . '=:' . $key;
+        }
+        $sql = '
+            UPDATE ' . static::$table . '
+            SET ' . implode(', ', $cols) . '
+            WHERE id =:id
+            ';
+        $db = new DB;
+        $db->execute($sql, $data);
+    }
+
+    public function save()
+    {
+        if(isset($this->id)) {
+            $this->update();
+        } else {
+            $this->insert();
+        }
     }
 }
