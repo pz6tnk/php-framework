@@ -5,7 +5,9 @@ class ArticleController
     public function ActionAll()
     {
         $articles = Articles::getAll();
-        require_once (__DIR__ . '/../views/articles/all.php');
+        $view = new View;
+        $view->articles = $articles;
+        $view->display('articles/all.php');
 
     }
     public function ActionOne()
