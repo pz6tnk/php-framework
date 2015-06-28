@@ -2,6 +2,6 @@
 
 class Articles extends AbstractModel
 {
-    protected static $table = 'articles';
+    protected static $table = 'test';
     protected static $class = 'Articles';
 }
