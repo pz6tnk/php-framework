@@ -32,7 +32,10 @@ abstract class AbstractModel
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
         $DB = new DB;
         $DB->setClassName(static::$class);
-        return $DB->query($sql, [':id' => $id])[0];
+        $item = $DB->query($sql, [':id' => $id]);
+        if(!empty($item)) {
+            return $item[0];
+        }
     }
 
     public function getByColumn($field, $value)

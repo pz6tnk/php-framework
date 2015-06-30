@@ -17,6 +17,10 @@ class ArticleController
     public function ActionOne()
     {
         $articles = Articles::getOne($_GET['id']);
+        if(empty($articles)) {
+            throw new E404Exception();
+        }
+
         require_once (__DIR__ . '/../views/articles/one.php');
     }
 }
