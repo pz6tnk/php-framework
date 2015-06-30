@@ -4,14 +4,15 @@ class ArticleController
 {
     public function ActionAll()
     {
-     /*   $articles = Articles::getAll();
+        $articles = Articles::getAll();
         $view = new View;
         $view->articles = $articles;
-        $view->display('articles/all.php');*/
-        $article = new Articles();
+        $view->display('articles/all.php');
+      /*  $article = new Articles();
         $article->title = 'Tit';
         $article->body = 'Body';
-        $article->insert();
+        $article->id = 7;
+        $article->delete();*/
     }
     public function ActionOne()
     {
