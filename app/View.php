@@ -19,6 +19,6 @@ class View {
         foreach($this->data as $key => $val) {
             $$key = $val;
         }
-        require (__DIR__ . '/../views/' . $name);
+        require (__DIR__ . '/../views/' . $name . '.php');
     }
 }

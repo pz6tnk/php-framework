@@ -13,20 +13,17 @@ class ArticleController
         $articles = Articles::getAll();
         $view = new View;
         $view->articles = $articles;
-        $view->display('articles/all.php');
-      /*  $article = new Articles();
-        $article->title = 'Tit';
-        $article->body = 'Body';
-        $article->id = 7;
-        $article->delete();*/
+        $view->display('articles/all');
+
     }
     public function ActionOne()
     {
         $articles = Articles::getOne($_GET['id']);
         if(empty($articles)) {
-            throw new E404Exception();
+            throw new E404Exception('Статья с id ' . $_GET['id'] . ' не существует');
         }
-
-        require_once (__DIR__ . '/../views/articles/one.php');
+        $view = new View;
+        $view->article = $articles;
+        $view->display('articles/one');
     }
 }

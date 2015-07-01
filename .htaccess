@@ -1,0 +1,8 @@
+RewriteEngine on
+# If a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([a-zA-Z]+)/?$ index.php?ctrl=$1
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/?$ index.php?ctrl=$1&act=$2
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/?$ index.php?ctrl=$1&act=$2&id=$3

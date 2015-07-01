@@ -2,12 +2,10 @@
 /**
  * pz6-framework
  *
- * Front controller
+ * Entry script
  */
 
 require_once(__DIR__ . '/autoload.php');
 
-$app = new \pz6\app\Application;
-$app->run();
-
+\pz6\app\Application::getInstance()->run();
 
