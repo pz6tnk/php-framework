@@ -1,6 +1,8 @@
 <?php
 
-class E404Exception extends Exception
+namespace pz6\app;
+
+class E404Exception extends \Exception
 {
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace pz6\app;
+
 class DB
 {
     private $dbh;
@@ -7,7 +9,8 @@ class DB
 
     public function __construct()
     {
-        $this->dbh = new PDO('mysql:dbname=laracast;host=localhost', 'root', 'lollipop');
+        require_once(__DIR__ . '/../config/db.php');
+        $this->dbh = new \PDO('mysql:dbname=' . $db_conf['dbname'] . ';host=' . $db_conf['host'], $db_conf['user'], $db_conf['password']);
     }
     public function setClassName($className)
     {
@@ -17,7 +20,7 @@ class DB
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-        return $sth->fetchAll(PDO::FETCH_CLASS, $this->className);
+        return $sth->fetchAll(\PDO::FETCH_CLASS, $this->className);
     }
     public function execute($sql, $params = [])
     {

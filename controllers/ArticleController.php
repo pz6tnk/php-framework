@@ -1,5 +1,11 @@
 <?php
 
+namespace pz6\controllers;
+
+use pz6\models\Articles;
+use pz6\app\E404Exception;
+use pz6\app\View;
+
 class ArticleController
 {
     public function ActionAll()

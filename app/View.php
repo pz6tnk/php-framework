@@ -1,5 +1,7 @@
 <?php
 
+namespace pz6\app;
+
 class View {
 
     protected $data = [];

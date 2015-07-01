@@ -1,12 +1,10 @@
 <?php
+define('DS', DIRECTORY_SEPARATOR);
 
-function __autoload($class)
-{
-    if(file_exists(__DIR__ . '/controllers/' . $class . '.php')) {
-        require __DIR__ . '/controllers/' . $class . '.php';
-    } elseif(file_exists(__DIR__ . '/models/' . $class . '.php')) {
-        require __DIR__ . '/models/' . $class . '.php';
-    } elseif(file_exists(__DIR__ . '/app/' . $class . '.php')) {
-        require __DIR__ . '/app/' . $class . '.php';
+spl_autoload_register(function ($className) {
+    if ( 'pz6' == substr($className,0,3) ) {
+        $className = str_replace('pz6', '', $className);
+        require __DIR__ . str_replace('\\', DS, $className) . '.php';
     }
-}
+    return false;
+});

@@ -1,5 +1,7 @@
 <?php
 
+namespace pz6\app;
+
 abstract class AbstractModel
 {
     protected static $table;
@@ -24,14 +26,14 @@ abstract class AbstractModel
     {
         $sql = 'SELECT * FROM ' . static::$table;
         $DB = new DB;
-        $DB->setClassName(static::$class);
+        $DB->setClassName(get_called_class());
         return $DB->query($sql);
     }
     public static function getOne($id)
     {
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
         $DB = new DB;
-        $DB->setClassName(static::$class);
+        $DB->setClassName(get_called_class());
         $item = $DB->query($sql, [':id' => $id]);
         if(!empty($item)) {
             return $item[0];
@@ -42,7 +44,7 @@ abstract class AbstractModel
     {
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE ' . $field . '=:value';
         $DB = new DB;
-        $DB->setClassName(static::$class);
+        $DB->setClassName(get_called_class());
         return $DB->query($sql, [':value' => $value]);
     }
 
