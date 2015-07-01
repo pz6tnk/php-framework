@@ -17,9 +17,12 @@ class Application
         $request = Request::getInstance()->parseUrl();
         try
         {
-            $controller = new $request['ctrl']();
-            $method = 'action' . $request['act'];
-            $controller->$method();
+            if (class_exists($request['ctrl'])) {
+                $controller = new $request['ctrl']();
+                $controller->callAction($request['act']);
+            } else {
+                throw new E404Exception('Controller ' . $request['ctrl'] . ' is not found');
+            }
         }
         catch(E404Exception $e) {
             $view = new View;

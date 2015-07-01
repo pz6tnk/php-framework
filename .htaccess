@@ -3,6 +3,6 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^([a-zA-Z]+)/?$ index.php?ctrl=$1
-RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/?$ index.php?ctrl=$1&act=$2
-RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/([0-9]+)/?$ index.php?ctrl=$1&act=$2&id=$3
+RewriteRule ^([a-zA-Z0-9]+)/?$ index.php?ctrl=$1
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z]+)/?$ index.php?ctrl=$1&act=$2
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z]+)/([0-9]+)/?$ index.php?ctrl=$1&act=$2&id=$3

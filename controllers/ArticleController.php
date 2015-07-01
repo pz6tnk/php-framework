@@ -2,11 +2,12 @@
 
 namespace pz6\controllers;
 
+use pz6\app\Controller;
 use pz6\models\Articles;
 use pz6\app\E404Exception;
 use pz6\app\View;
 
-class ArticleController
+class ArticleController extends Controller
 {
     public function ActionAll()
     {
@@ -18,9 +19,14 @@ class ArticleController
     }
     public function ActionOne()
     {
-        $articles = Articles::getOne($_GET['id']);
+        if(!empty($_GET['id'])) {
+            $articles = Articles::getOne($_GET['id']);
+            $message = 'Статья с id ' . $_GET['id'] . ' не существует';
+        } else {
+            $message = 'Id не задан';
+        }
         if(empty($articles)) {
-            throw new E404Exception('Статья с id ' . $_GET['id'] . ' не существует');
+            throw new E404Exception($message);
         }
         $view = new View;
         $view->article = $articles;
