@@ -11,7 +11,7 @@ class Twig
         $path = __DIR__ . '/../views/';
         $loader = new \Twig_Loader_Filesystem($path);
         $this->twig = new \Twig_Environment($loader, [
-            'cache' => __DIR__ . '/../cache/Twig',
+            'cache' => __DIR__ . '/../cache/twig',
             'auto_reload' => true,
         ]);
     }

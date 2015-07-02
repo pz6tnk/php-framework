@@ -1,4 +1,8 @@
-<?php
+{% extends "html/skeleton.twig" %}
 
-echo "<h2>" . $article->title . "</h2>";
-echo "<p>" . $article->body . "</p>";
+{% block content %}
+    <h1>{{ article.title }}</h1>
+    <hr>
+    <p>{{ article.body }}</p>
+{% endblock %}
+

@@ -1,14 +1,14 @@
 <?php
 
-/* articles/all.html */
-class __TwigTemplate_9d4ba46eac674d63517e0e8f8cc6b41fdf01b59721cdfc9ef54312c8dc5e5513 extends Twig_Template
+/* articles/all.twig */
+class __TwigTemplate_fbb3573037110fab76ddea5753e429621e30fac59451a6b1ff5489e31b610208 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("html/skeleton.twig", "articles/all.html", 1);
+        $this->parent = $this->loadTemplate("html/skeleton.twig", "articles/all.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -28,15 +28,21 @@ class __TwigTemplate_9d4ba46eac674d63517e0e8f8cc6b41fdf01b59721cdfc9ef54312c8dc5
     public function block_content($context, array $blocks = array())
     {
         // line 4
+        echo "    <h1>Articles</h1>
+    <hr>
+";
+        // line 6
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) ? $context["articles"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 5
-            echo "    <h2>";
+            // line 7
+            echo "    <h2><a href=\"article/one/";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "id", array()), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);
-            echo "</h2>
+            echo "</a></h2>
     <p>";
-            // line 6
+            // line 8
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "body", array()), "html", null, true);
             echo "</p>
 ";
@@ -48,7 +54,7 @@ class __TwigTemplate_9d4ba46eac674d63517e0e8f8cc6b41fdf01b59721cdfc9ef54312c8dc5
 
     public function getTemplateName()
     {
-        return "articles/all.html";
+        return "articles/all.twig";
     }
 
     public function isTraitable()
@@ -58,6 +64,6 @@ class __TwigTemplate_9d4ba46eac674d63517e0e8f8cc6b41fdf01b59721cdfc9ef54312c8dc5
 
     public function getDebugInfo()
     {
-        return array (  40 => 6,  35 => 5,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  46 => 8,  39 => 7,  35 => 6,  31 => 4,  28 => 3,  11 => 1,);
     }
 }
