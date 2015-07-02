@@ -1,11 +1,7 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
 
-if (!is_readable(__DIR__ . DS . 'vendor')) {
-    die('Install composer dependencies first!');
-}
-
-require realpath(__DIR__ . DS . 'vendor' . DS . 'autoload.php');
+require realpath(__DIR__ . DS . '..' . DS . 'vendor' . DS . 'autoload.php');
 
 spl_autoload_register(function ($className) {
     if ( 'pz6' == substr($className,0,3) ) {

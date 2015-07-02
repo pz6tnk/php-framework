@@ -20,6 +20,7 @@ class Application
             if (class_exists($request['ctrl'])) {
                 $controller = new $request['ctrl']();
                 $controller->callAction($request['act']);
+
             } else {
                 throw new E404Exception('Controller ' . $request['ctrl'] . ' is not found');
             }

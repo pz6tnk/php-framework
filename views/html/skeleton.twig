@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:t4="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    {% block head %}
+    {% include 'html/css.twig' %}
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+<div id="content">
+
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-body">
+                        {% block content %}{% endblock %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div id="footer">
+    {% block footer %}
+
+    {% endblock %}
+</div>
+</body>
+</html>
