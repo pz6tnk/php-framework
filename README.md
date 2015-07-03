@@ -1,6 +1,7 @@
-php-framework - это микро MVC фреймворк, разрабатываемый для обучения
+php-framework - это микро MVC фреймворк, используемый для маленьких проектов и обучения
 
-Основные осоенности:
+Основные особенности:
 -MVC
--ORM + Active Record
+-Active Record
 -Twig
+-Migrations

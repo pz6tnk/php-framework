@@ -17,7 +17,7 @@ abstract class AbstractModel
     {
         return $this->data[$k];
     }
-    function __isset($k)
+    public function __isset($k)
     {
         return isset($this->data[$k]);
     }
@@ -61,7 +61,7 @@ abstract class AbstractModel
             (' . implode(', ', array_keys($data)) . ')';
         $DB = new DB;
         $DB->execute($sql, $data);
-        $this->id = $DB->lastInsertId();
+        return $DB->lastInsertId();
     }
 
     protected function update()
@@ -80,23 +80,29 @@ abstract class AbstractModel
             SET ' . implode(', ', $cols) . '
             WHERE id =:id
             ';
-        $db = new DB;
-        $db->execute($sql, $data);
+        $DB = new DB;
+        return $DB->execute($sql, $data);
     }
 
     public function save()
     {
         if(isset($this->id)) {
-            $this->update();
+            return $this->update();
         } else {
-            $this->insert();
+            return $this->insert();
         }
     }
 
-    public function delete()
+    public function delete($field = 'id')
     {
-        $sql = 'DELETE FROM ' . static::$table . ' WHERE id = ' . $this->id;
+        if(isset($this->value)) {
+            $where =  ' WHERE ' . $field . '=' . '\'' . $this->value . '\'';
+        }
+        else {
+            $where = '';
+        }
+        $sql = 'DELETE FROM ' . static::$table . $where . ' ORDER BY ' . $field . ' DESC LIMIT 1';
         $DB = new DB;
-        return $DB->query($sql);
+        return $DB->execute($sql);
     }
 }

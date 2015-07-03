@@ -6,5 +6,5 @@ use pz6\app\AbstractModel;
 
 class Articles extends AbstractModel
 {
-    protected static $table = 'test';
+    protected static $table = 'articles';
 }

@@ -9,7 +9,7 @@ class DB
 
     public function __construct()
     {
-        require_once(__DIR__ . '/../config/db.php');
+        require (__DIR__ . '/../config/db.php');
         $this->dbh = new \PDO('mysql:dbname=' . $db_conf['dbname'] . ';host=' . $db_conf['host'], $db_conf['user'], $db_conf['password']);
     }
     public function setClassName($className)
