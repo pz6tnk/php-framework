@@ -3,10 +3,10 @@
 namespace pz6\migrations;
 
 use pz6\app\DB;
-use pz6\app\Migration;
+use pz6\app\AbstractMigration;
 use pz6\models\Articles;
 
-class m150703_133130 extends Migration
+class m150703_133130 extends AbstractMigration
 {
     public function up() {
         $articles = new Articles();
@@ -19,6 +19,7 @@ class m150703_133130 extends Migration
     public function down() {
         $articles = new Articles();
         $articles->delete();
-        return $articles->delete();
+        $articles->delete();
+
     }
 }

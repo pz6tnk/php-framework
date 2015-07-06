@@ -3,10 +3,10 @@
 namespace pz6\controllers;
 
 use pz6\app\Controller;
-use pz6\app\MigrationManager;
 use pz6\models\Articles;
 use pz6\app\E404Exception;
 use pz6\app\View;
+use pz6\migrations\m140703_103120;
 
 class ArticleController extends Controller
 {
@@ -16,6 +16,7 @@ class ArticleController extends Controller
         $view = new View;
         $view->articles = $articles;
         $view->display('articles/all');
+
     }
     public function ActionOne()
     {

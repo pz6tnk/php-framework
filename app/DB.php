@@ -9,8 +9,9 @@ class DB
 
     public function __construct()
     {
-        require (__DIR__ . '/../config/db.php');
-        $this->dbh = new \PDO('mysql:dbname=' . $db_conf['dbname'] . ';host=' . $db_conf['host'], $db_conf['user'], $db_conf['password']);
+        $config = new Config();
+        $config->load();
+        $this->dbh = new \PDO($config->driver . ':dbname=' . $config->dbname . ';host=' . $config->host, $config->user, $config->password);
     }
     public function setClassName($className)
     {
@@ -31,4 +32,5 @@ class DB
     {
         return $this->dbh->lastInsertId();
     }
+
 }

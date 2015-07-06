@@ -5,7 +5,6 @@ namespace pz6\app;
 abstract class AbstractModel
 {
     protected static $table;
-    protected static $class;
 
     protected $data = [];
 
@@ -29,6 +28,7 @@ abstract class AbstractModel
         $DB->setClassName(get_called_class());
         return $DB->query($sql);
     }
+
     public static function getOne($id)
     {
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
@@ -93,15 +93,19 @@ abstract class AbstractModel
         }
     }
 
-    public function delete($field = 'id')
+    public function delete()
     {
-        if(isset($this->value)) {
-            $where =  ' WHERE ' . $field . '=' . '\'' . $this->value . '\'';
+        foreach($this->data as $key=>$val) {
+            $field = $key;
+            $value = $val;
+        }
+        if(!empty($value)) {
+            $where =  ' WHERE ' . $field . '=' . '\'' . $value . '\'';
         }
         else {
             $where = '';
         }
-        $sql = 'DELETE FROM ' . static::$table . $where . ' ORDER BY ' . $field . ' DESC LIMIT 1';
+        $sql = 'DELETE FROM ' . static::$table . $where . ' ORDER BY \'id\' DESC LIMIT 1';
         $DB = new DB;
         return $DB->execute($sql);
     }

@@ -4,8 +4,8 @@ namespace pz6\app;
 
 class MigrationManager
 {
-    public $table = 'migration';
-    public $path = '/../migrations';
+    private $table = 'migration';
+    private $path = '/../migrations';
 
     /**
      * @var DB
@@ -74,9 +74,9 @@ class MigrationManager
 namespace pz6\migrations;
 
 use pz6\app\DB;
-use pz6\app\Migration;
+use pz6\app\AbstractMigration;
 
-class {$class} extends Migration
+class {$class} extends AbstractMigration.php
 {
     public function up() {
 
@@ -130,14 +130,15 @@ END;
         $migration = new $class();
         if ($migration->down() !== false) {
             $migrations = new Migration();
-            $migrations->value = $version;
-            return $migrations->delete('migration');
+            $migrations->migration = $version;
+            return $migrations->delete();
         }
         return false;
     }
 
     public function getNewMigrations() {
         $migrations = Migration::getAll();
+        $files = [];
         foreach (new \DirectoryIterator(__DIR__ . $this->path) as $file) {
             if($file->isDot()) continue;
             $files[] = $file->getBasename('.php');

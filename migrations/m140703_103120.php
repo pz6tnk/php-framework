@@ -3,19 +3,24 @@
 namespace pz6\migrations;
 
 use pz6\app\DB;
-use pz6\app\Migration;
+use pz6\app\AbstractMigration;
 
-class m140703_103120 extends Migration
+class m140703_103120 extends AbstractMigration
 {
-    public function up() {
-        $DB = new DB();
-        $sql = 'CREATE TABLE IF NOT EXISTS articles (`id` int NOT NULL PRIMARY KEY AUTO_INCREMENT, `title` varchar(64), `body` text) ENGINE=MyISAM DEFAULT CHARSET=utf8;';
-        return $DB->execute($sql);
+    public function up()
+    {
+        $this->createTable('articles', [
+            'id'    => 'autoincrement',
+            'title' => [
+                'type'      => 'string',
+                'length'    => 64
+            ],
+            'body'  => 'text'
+        ]);
     }
 
-    public function down() {
-        $DB = new DB();
-        $sql = 'DROP TABLE articles';
-        return $DB->execute($sql);
+    public function down()
+    {
+        $this->dropTable('articles');
     }
 }
