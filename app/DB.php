@@ -10,8 +10,8 @@ class DB
     public function __construct()
     {
         $config = new Config();
-        $config->load();
-        $this->dbh = new \PDO($config->driver . ':dbname=' . $config->dbname . ';host=' . $config->host, $config->user, $config->password);
+        $db_conf = $config->load('db');
+        $this->dbh = new \PDO($db_conf['driver'] . ':dbname=' . $db_conf['dbname'] . ';host=' . $db_conf['host'], $db_conf['user'], $db_conf['password']);
     }
     public function setClassName($className)
     {

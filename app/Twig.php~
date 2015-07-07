@@ -14,18 +14,11 @@ class Twig
             'cache' => __DIR__ . '/../cache/twig',
             'auto_reload' => true,
         ]);
-        $function = new \Twig_SimpleFunction('addCss', function () {
-            $AssetsManager = AssetsManager::getInstance();
-            $AssetsManager->addConfigAssets();
-            return $AssetsManager->css . $AssetsManager->js;
-        });
-        $this->twig->addFunction($function);
     }
 
     public function render($name, $data = [])
     {
         $template = $this->twig->loadTemplate($name . '.twig');
         echo $template->render($data);
-
     }
 }

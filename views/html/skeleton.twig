@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     {% block head %}
-    {% include 'html/css.twig' %}
-    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {{  addCss() | raw }}
+    <title>{% block title %}{% endblock %}php - framework</title>
     {% endblock %}
 </head>
 <body>

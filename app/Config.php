@@ -2,15 +2,15 @@
 
 namespace pz6\app;
 
-class Config extends Std
+class Config
 {
-    private $path = '/../config/db.php';
+    private $path = '/../config/';
 
-    public function load()
+    public function load($file)
     {
         if (!is_readable(__DIR__ . $this->path)) {
             throw new Exception('Config file ' . $this->path . ' is not found or is not readable');
         }
-        return $this->fromArray(include(__DIR__ . $this->path));
+        return include(__DIR__ . $this->path . $file . '.php');
     }
 }

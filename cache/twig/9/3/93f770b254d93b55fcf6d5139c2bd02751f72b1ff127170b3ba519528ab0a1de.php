@@ -63,11 +63,12 @@ class __TwigTemplate_93f770b254d93b55fcf6d5139c2bd02751f72b1ff127170b3ba519528ab
     {
         // line 6
         echo "    ";
-        $this->loadTemplate("html/css.twig", "html/skeleton.twig", 6)->display($context);
+        echo call_user_func_array($this->env->getFunction('addCss')->getCallable(), array());
+        echo "
+    <title>";
         // line 7
-        echo "    <title>";
         $this->displayBlock('title', $context, $blocks);
-        echo " - My Webpage</title>
+        echo "php - framework</title>
     ";
     }
 
@@ -95,6 +96,6 @@ class __TwigTemplate_93f770b254d93b55fcf6d5139c2bd02751f72b1ff127170b3ba519528ab
 
     public function getDebugInfo()
     {
-        return array (  87 => 28,  84 => 27,  79 => 18,  68 => 7,  65 => 6,  62 => 5,  56 => 30,  54 => 27,  42 => 18,  31 => 9,  29 => 5,  23 => 1,);
+        return array (  88 => 28,  85 => 27,  80 => 18,  70 => 7,  65 => 6,  62 => 5,  56 => 30,  54 => 27,  42 => 18,  31 => 9,  29 => 5,  23 => 1,);
     }
 }

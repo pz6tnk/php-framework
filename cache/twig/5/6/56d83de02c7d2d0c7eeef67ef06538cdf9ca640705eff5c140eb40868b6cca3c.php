@@ -16,13 +16,17 @@ class __TwigTemplate_56d83de02c7d2d0c7eeef67ef06538cdf9ca640705eff5c140eb40868b6
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css\">
-";
+        echo call_user_func_array($this->env->getFunction('addCss')->getCallable(), array());
     }
 
     public function getTemplateName()
     {
         return "html/css.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
     }
 
     public function getDebugInfo()
