@@ -30,15 +30,27 @@ class __TwigTemplate_93f770b254d93b55fcf6d5139c2bd02751f72b1ff127170b3ba519528ab
         // line 9
         echo "</head>
 <body>
-<div id=\"content\">
+<div class=\"navbar navbar-inverse\">
+    <div class=\"navbar-inner\">
+        <div class=\"container\">
+            <div class=\"col-md-10 col-md-offset-1\">
+                <ul class=\"nav\">
+                    <li class=\"active\"><a href=\"/\">Home</a></li>
+                    <li><a href=\"/articles/all\">Articles</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div id=\"content\">
     <div class=\"container\">
         <div class=\"col-md-10 col-md-offset-1\">
             <div class=\"panel panel-default\">
                 <div class=\"panel-heading\">
                     <div class=\"panel-body\">
                         ";
-        // line 18
+        // line 30
         $this->displayBlock('content', $context, $blocks);
         echo "</div>
                     </div>
@@ -50,9 +62,9 @@ class __TwigTemplate_93f770b254d93b55fcf6d5139c2bd02751f72b1ff127170b3ba519528ab
 
 <div id=\"footer\">
     ";
-        // line 27
+        // line 39
         $this->displayBlock('footer', $context, $blocks);
-        // line 30
+        // line 42
         echo "</div>
 </body>
 </html>";
@@ -76,15 +88,15 @@ class __TwigTemplate_93f770b254d93b55fcf6d5139c2bd02751f72b1ff127170b3ba519528ab
     {
     }
 
-    // line 18
+    // line 30
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 27
+    // line 39
     public function block_footer($context, array $blocks = array())
     {
-        // line 28
+        // line 40
         echo "
     ";
     }
@@ -96,6 +108,6 @@ class __TwigTemplate_93f770b254d93b55fcf6d5139c2bd02751f72b1ff127170b3ba519528ab
 
     public function getDebugInfo()
     {
-        return array (  88 => 28,  85 => 27,  80 => 18,  70 => 7,  65 => 6,  62 => 5,  56 => 30,  54 => 27,  42 => 18,  31 => 9,  29 => 5,  23 => 1,);
+        return array (  100 => 40,  97 => 39,  92 => 30,  82 => 7,  77 => 6,  74 => 5,  68 => 42,  66 => 39,  54 => 30,  31 => 9,  29 => 5,  23 => 1,);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace pz6\app;
 
-use pz6\app\E404Exception;
-
 class Controller
 {
     final public function callAction($name)

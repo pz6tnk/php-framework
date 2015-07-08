@@ -6,8 +6,8 @@ class Request
 {
     use TSingleton;
 
-    const DEFAULT_CONTROLLER = 'Article';
-    const DEFAULT_ACTION = 'All';
+    const DEFAULT_CONTROLLER = 'Index';
+    const DEFAULT_ACTION = 'Index';
 
     /**
      * @return array имя контроллера и action

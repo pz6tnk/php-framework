@@ -36,7 +36,7 @@ class __TwigTemplate_fbb3573037110fab76ddea5753e429621e30fac59451a6b1ff5489e31b6
         $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) ? $context["articles"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 7
-            echo "    <h2><a href=\"article/one/";
+            echo "    <h2><a href=\"/articles/one/";
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "id", array()), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "title", array()), "html", null, true);

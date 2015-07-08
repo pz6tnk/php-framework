@@ -2,18 +2,13 @@
 
 namespace pz6\controllers;
 
-use pz6\app\AssetsManager;
 use pz6\app\Controller;
 use pz6\models\Articles;
 use pz6\app\E404Exception;
 use pz6\app\View;
 
-class ArticleController extends Controller
+class ArticlesController extends Controller
 {
-    public function __construct()
-    {
-        AssetsManager::getInstance()->addCssFile('style');
-    }
 
     public function ActionAll()
     {
@@ -21,7 +16,6 @@ class ArticleController extends Controller
         $view = new View;
         $view->articles = $articles;
         $view->display('articles/all');
-
     }
 
     public function ActionOne()

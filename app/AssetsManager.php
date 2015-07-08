@@ -6,6 +6,11 @@ class AssetsManager
 {
     use TSingleton;
 
+    public function __construct()
+    {
+        $this->addCssFile('style');
+    }
+
     public $css;
     public $js;
 

@@ -1,0 +1,12 @@
+{% extends "html/skeleton.twig" %}
+
+{% block content %}
+    <h1>Hello, guys</h1>
+    <hr>
+    <p>Welcome to simple php-framework witch is designed for small projects and your education.</p>
+    <p>This is default Index controller located in controllers folder.</p>
+    <p>Run "migrate.php up" command if you haven't done this yet.</p>
+    {% for item in form %}
+        {{ item |raw }}
+    {% endfor %}
+{% endblock %}
